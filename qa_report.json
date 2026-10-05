@@ -1,0 +1,102 @@
+[
+  {
+    "check": "Required columns",
+    "status": "PASS",
+    "detail": "All 13 required columns are present"
+  },
+  {
+    "check": "Row count",
+    "status": "PASS",
+    "detail": "Loaded 20,103 rows"
+  },
+  {
+    "check": "qn26 response codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0)]; expected non-missing codes are 1 and 2"
+  },
+  {
+    "check": "qn27 response codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0)]; expected non-missing codes are 1 and 2"
+  },
+  {
+    "check": "qn28 response codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0)]; expected non-missing codes are 1 and 2"
+  },
+  {
+    "check": "qn23 response codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0)]; expected non-missing codes are 1 and 2"
+  },
+  {
+    "check": "qn24 response codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0)]; expected non-missing codes are 1 and 2"
+  },
+  {
+    "check": "q89 grade codes",
+    "status": "PASS",
+    "detail": "Observed [np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0)]; expected codes are 1 through 7"
+  },
+  {
+    "check": "Student weights",
+    "status": "PASS",
+    "detail": "0 non-positive and 0 missing weights"
+  },
+  {
+    "check": "psu completeness",
+    "status": "PASS",
+    "detail": "0 missing values out of 20,103 rows"
+  },
+  {
+    "check": "stratum completeness",
+    "status": "PASS",
+    "detail": "0 missing values out of 20,103 rows"
+  },
+  {
+    "check": "q1 numeric conversion",
+    "status": "PASS",
+    "detail": "20,005 values converted successfully"
+  },
+  {
+    "check": "q2 numeric conversion",
+    "status": "PASS",
+    "detail": "19,945 values converted successfully"
+  },
+  {
+    "check": "q88 numeric conversion",
+    "status": "PASS",
+    "detail": "13,823 values converted successfully"
+  },
+  {
+    "check": "Result file consider_odds_ratios.csv",
+    "status": "PASS",
+    "detail": "Loaded 4 result rows"
+  },
+  {
+    "check": "Result file consider_prevalence.csv",
+    "status": "PASS",
+    "detail": "Loaded 5 result rows"
+  },
+  {
+    "check": "Result file plan_odds_ratios.csv",
+    "status": "PASS",
+    "detail": "Loaded 4 result rows"
+  },
+  {
+    "check": "Result file plan_prevalence.csv",
+    "status": "PASS",
+    "detail": "Loaded 5 result rows"
+  },
+  {
+    "check": "Result file sad_odds_ratios.csv",
+    "status": "PASS",
+    "detail": "Loaded 4 result rows"
+  },
+  {
+    "check": "Result file sad_prevalence.csv",
+    "status": "PASS",
+    "detail": "Loaded 5 result rows"
+  }
+]
