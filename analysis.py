@@ -1,17 +1,10 @@
-"""
-YRBSS: Academic performance vs. youth mental health
-Starter analysis. Run: python analysis.py yrbs2023.csv
-
-!! Verify every name in VARS and every recode against the CDC Data User's Guide
-!! for your survey year. Question numbers and codings change between years.
-"""
 import sys
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
-# ---- 1. EDIT ME: map roles -> column names in your file (lowercase) ----------
+# ---- 1. Map roles
 VARS = {
     "grades":   "q89",      # self-reported grades (VERIFY)
     "sad":      "qn26",     # persistent sadness/hopelessness
@@ -72,9 +65,6 @@ def odds_ratios(d, outcome, adjusted=True):
         rhs += " + C(sex) + age + C(race) + sleep + bully + cyber"
         cols += ["sex", "age", "race", "sleep", "bully", "cyber"]
     sub = d.dropna(subset=cols)
-    # NOTE: approximation of the complex design: weighted GLM with
-    # PSU-clustered robust SEs. For exact Taylor-linearized SEs use R's
-    # `survey` package (svydesign + svyglm, family=quasibinomial).
     m = smf.glm(f"{outcome} ~ {rhs}", data=sub, family=sm.families.Binomial(),
                 freq_weights=sub["weight"]).fit(
         cov_type="cluster", cov_kwds={"groups": sub["psu"]})
