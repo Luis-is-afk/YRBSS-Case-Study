@@ -152,7 +152,7 @@ Other limitations include the following:
 
 ## Supporting Visualization
 
-The interactive dashboard allows viewers to:
+The interactive dashboard allows:
 
 - Select one of the three mental health outcomes.
 - Compare weighted prevalence across A through F grade categories.
@@ -162,6 +162,7 @@ The interactive dashboard allows viewers to:
 
 The visualization emphasizes the D grade category because it had the highest reported prevalence and adjusted odds for all three outcomes. It also makes clear that the results show an association rather than proof that grades cause mental health concerns.
 
+[Open the interactive dashboard](https://luis-is-afk.github.io/YRBSS-Case-Study/interactive_dashboard.html)
 
 ## 6. Act: Practical Recommendations
 
