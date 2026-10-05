@@ -1,1 +1,62 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YRBSS Academic Performance and Youth Mental Health</title>
+<style>
+:root{--ink:#172033;--muted:#64748b;--line:#dbe3ee;--bg:#f5f7fb;--card:#fff;--blue:#2563eb;--blue2:#dbeafe;--red:#dc2626;--red2:#fee2e2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1120px;margin:auto;padding:32px 20px 48px}.eyebrow{color:var(--blue);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}.title{font-size:clamp(28px,4vw,46px);line-height:1.05;margin:10px 0 12px}.sub{color:var(--muted);max-width:760px;line-height:1.6;margin:0 0 24px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px #1720330b}.card{padding:18px}.metric{font-size:30px;font-weight:800}.label{color:var(--muted);font-size:13px;margin-top:5px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 14px}.controls label{font-size:13px;font-weight:700;color:var(--muted)}select,button{font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px;color:var(--ink)}button{cursor:pointer;font-weight:700}button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.panel{padding:20px}.panel h2{font-size:20px;margin:0 0 4px}.hint{font-size:13px;color:var(--muted);margin:0 0 18px}.chart{width:100%;height:420px;display:block}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.note{margin-top:16px;padding:14px 16px;background:#eff6ff;border-left:4px solid var(--blue);border-radius:8px;color:#24436d;line-height:1.5;font-size:14px}.source{color:var(--muted);font-size:12px;margin-top:18px}.tip{position:fixed;pointer-events:none;background:#172033;color:#fff;padding:9px 11px;border-radius:8px;font-size:12px;opacity:0;transition:opacity .12s;z-index:3}.bar{cursor:pointer}.bar:hover{opacity:.78}.orline{stroke:#94a3b8;stroke-dasharray:4 4}.orpoint{fill:var(--red);stroke:#fff;stroke-width:3;cursor:pointer}.axis{stroke:#cbd5e1}.tick{fill:#64748b;font-size:12px}.xlab{fill:#172033;font-size:13px;font-weight:700}@media(max-width:700px){.grid{grid-template-columns:1fr}.chart{height:350px}.wrap{padding:24px 14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">2023 CDC YRBSS case study</div>
+  <h1 class="title">Academic performance and youth mental health</h1>
+  <p class="sub">Explore how reported mental health outcomes changed across self-reported grade categories. The charts use the weighted prevalence and adjusted odds ratios from this analysis.</p>
+  <div class="grid">
+    <div class="card"><div class="metric">80.1%</div><div class="label">D students reporting persistent sadness</div></div>
+    <div class="card"><div class="metric">9.30×</div><div class="label">Adjusted odds of suicide planning for D vs. A students</div></div>
+    <div class="card"><div class="metric">20.0%</div><div class="label">A students reporting persistent sadness</div></div>
+  </div>
+  <div class="controls">
+    <label for="outcome">Outcome</label>
+    <select id="outcome">
+      <option value="sad">Persistent sadness or hopelessness</option>
+      <option value="consider">Seriously considered suicide</option>
+      <option value="plan">Made a suicide plan</option>
+    </select>
+    <label>View</label>
+    <button class="active" data-view="prev">Weighted prevalence</button>
+    <button data-view="or">Adjusted odds ratio</button>
+  </div>
+  <section class="panel">
+    <h2 id="chartTitle">Weighted prevalence by grade category</h2>
+    <p class="hint" id="chartHint">Percent of students in each grade group reporting the selected outcome.</p>
+    <svg class="chart" id="chart" viewBox="0 0 1000 420" role="img" aria-label="Interactive chart"></svg>
+    <div class="legend"><span><i class="dot" style="background:#2563eb"></i>Grade group</span><span><i class="dot" style="background:#dc2626"></i>Adjusted odds ratio</span></div>
+    <div class="note" id="note"></div>
+  </section>
+  <p class="source">Source: 2023 CDC Youth Risk Behavior Surveillance System. Adjusted models account for sex, age, race or ethnicity, sleep, school bullying, and cyberbullying. Mostly A's are the reference group.</p>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const data={
+ sad:{name:'Persistent sadness or hopelessness',prev:[20,38.6,58.6,80.1,74.4],or:[1,2.103,4.17,10.327,5.712],ci:['—','1.72–2.57','3.52–4.95','8.16–13.07','4.12–7.92']},
+ consider:{name:'Seriously considered suicide',prev:[6.9,17.3,31.9,52.4,52],or:[1,2.02,4.593,9.149,7.726],ci:['—','1.58–2.58','3.75–5.62','6.88–12.16','5.65–10.57']},
+ plan:{name:'Made a suicide plan',prev:[5.7,14.7,23.3,44.6,43.7],or:[1,2.15,4.063,9.302,7.723],ci:['—','1.77–2.61','3.40–4.85','7.07–12.24','5.72–10.43']}
+};
+const grades=['A','B','C','D','F'], svg=document.getElementById('chart'),tip=document.getElementById('tip');let view='prev', outcome='sad';
+function el(tag,attrs={},text=''){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text)n.textContent=text;return n}
+function draw(){const d=data[outcome], vals=d[view], max=view==='prev'?100:12, left=76,bottom=350,top=28,w=890,h=300;svg.innerHTML='';
+ for(let i=0;i<=5;i++){let y=bottom-h*i/5;svg.appendChild(el('line',{x1:left,y1:y,x2:970,y2:y,class:'axis'}));svg.appendChild(el('text',{x:62,y:y+4,'text-anchor':'end',class:'tick'},view==='prev'?`${i*20}%`:`${(i*max/5).toFixed(1)}×`))}
+ const step=w/5;
+ if(view==='prev') vals.forEach((v,i)=>{let bw=step*.55,x=left+step*i+(step-bw)/2,y=bottom-h*v/max;let b=el('rect',{x,y,width:bw,height:bottom-y,rx:8,class:'bar',fill:i===3?'#dc2626':'#2563eb'});b.addEventListener('mousemove',e=>show(e,`${grades[i]} students: ${v}%`));b.addEventListener('mouseleave',hide);svg.appendChild(b);svg.appendChild(el('text',{x:x+bw/2,y:bottom+26,'text-anchor':'middle',class:'xlab'},grades[i]));});
+ else {let x0=left+step*.5, x1=970-step*.5, ymid=bottom-h*(1/max);svg.appendChild(el('line',{x1:x0,y1:ymid,x2:x1,y2:ymid,class:'orline'}));svg.appendChild(el('text',{x:62,y:ymid+4,'text-anchor':'end',class:'tick'},'1.0× reference')); vals.forEach((v,i)=>{let x=left+step*i+step/2,y=bottom-h*v/max;let p=el('circle',{cx:x,cy:y,r:9,class:'orpoint'});p.addEventListener('mousemove',e=>show(e,`${grades[i]} vs A: ${v.toFixed(2)}× odds${d.ci[i]!=='—'?' | 95% CI '+d.ci[i]:''}`));p.addEventListener('mouseleave',hide);svg.appendChild(p);svg.appendChild(el('text',{x,y:Math.max(18,y-17),'text-anchor':'middle',class:'tick'},`${v.toFixed(2)}×`));svg.appendChild(el('text',{x,y:bottom+26,'text-anchor':'middle',class:'xlab'},grades[i]));});}
+ document.getElementById('chartTitle').textContent=view==='prev'?'Weighted prevalence by grade category':'Adjusted odds ratio compared with mostly A’s';document.getElementById('chartHint').textContent=view==='prev'?'Percent of students in each grade group reporting the selected outcome.':'Higher values indicate higher odds compared with students reporting mostly A’s.';document.getElementById('note').textContent=view==='prev'?`The reported prevalence rises from ${d.prev[0]}% among A students to ${d.prev[3]}% among D students for this outcome.`:`After adjustment, D students had ${d.or[3].toFixed(2)} times the odds of reporting this outcome compared with A students. This is an association, not proof that grades cause the outcome.`;
+}
+function show(e,text){tip.textContent=text;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY+12)+'px';tip.style.opacity=1}function hide(){tip.style.opacity=0}
+document.getElementById('outcome').addEventListener('change',e=>{outcome=e.target.value;draw()});document.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');view=b.dataset.view;draw()}));draw();
+</script>
+</body>
+</html>
