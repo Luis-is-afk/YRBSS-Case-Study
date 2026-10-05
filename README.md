@@ -160,7 +160,7 @@ The interactive dashboard allows viewers to:
 - View confidence intervals for the adjusted regression results.
 - Read plain-language explanations of the main findings.
 
-The visualization emphasizes the D-grade category because it had the highest reported prevalence and adjusted odds for all three outcomes. It also makes clear that the results show an association rather than proof that grades cause mental health concerns.
+The visualization emphasizes the D grade category because it had the highest reported prevalence and adjusted odds for all three outcomes. It also makes clear that the results show an association rather than proof that grades cause mental health concerns.
 
 
 ## 6. Act: Practical Recommendations
