@@ -48,12 +48,37 @@ The survey uses a structured, multistage sampling process rather than selecting 
 - **Grade variable:** `q89` asks students, “During the past 12 months, how would you describe your grades in school?” Responses were grouped into five categories: Mostly A’s, Mostly B’s, Mostly C’s, Mostly D’s, and Mostly F’s. Responses such as “None of these” and “Not sure” were treated as missing. Mostly A’s were used as the comparison group in the regression models.
 - **Mental health outcomes:** `qn26`, `qn27`, and `qn28`. These variables measure mental health challenges reported during the past 12 months: persistent feelings of sadness or hopelessness (`qn26`), seriously considering suicide (`qn27`), and making a suicide plan (`qn28`). Responses were recoded from the CDC format of 1 = Yes and 2 = No into binary values for analysis.
 
+### Data Integrity Verification
+
+Before interpreting the results, the raw data and exported result files were checked with `validate_yrbss_analysis.py`. This validation script does not change the data; it reports potential problems so they can be reviewed before the analysis is used.
+
+The script checks that:
+
+- The raw file can be opened and contains rows.
+- All required variables are present, including the grade, mental health, sleep, bullying, demographic, weight, `psu`, and `stratum` fields.
+- Binary survey variables use the expected CDC response codes: `1 = Yes` and `2 = No`.
+- Grade responses use the expected codes from 1 through 7 before non-standard responses are treated as missing.
+- Student weights are numeric, present, and greater than zero.
+- The `psu` and `stratum` fields do not contain unexpected missing values.
+- Numeric conversions for age, sex, and sleep can be completed.
+- Exported prevalence values stay within the valid range of 0% to 100%.
+- Exported odds ratios are positive and do not contain infinite values.
+
+The validation was run against the raw YRBSS file and exported analysis results. It completed with **0 errors and 0 warnings**, so no data-integrity issues were identified by these checks. This result supports the reliability of the prepared files, but it does not replace reviewing the CDC codebook or checking that each variable is being interpreted correctly.  `exports/qa_report`
+
+
 ### Data Credibility
 
 - **Reliable:** The data come from a large CDC survey conducted using standardized procedures.
 - **Original:** The dataset is primary survey microdata released by the CDC.
 - **Relevant:** It includes academic, demographic, behavioral, and mental health measures needed for this analysis.
 - **Accessible:** The dataset is publicly available for research and analysis.
+
+### Privacy, Licensing, and Accessibility
+
+The analysis uses de-identified, public-use survey data and does not attempt to identify individual students. Results are reported in grouped form rather than as individual student records. The dataset and documentation are utilized in full compliance with the CDC's public-use data licensing terms.
+
+To ensure equitable access, this report uses descriptive headings, labeled statistical tables, plain-language executive summaries, and high-contrast visual elements. Key visual indicators include clear text labels and shape variations so findings are never communicated through color alone.
 
 ## 3. Process: Cleaning and Analysis
 
@@ -123,6 +148,20 @@ Other limitations include the following:
 - The models adjust for selected variables, but unmeasured factors may still influence the results.
 - The analysis is intended to describe population level patterns, not diagnose individual students.
 - The code uses student weights and clusters standard errors by `psu`, but it does not use the `stratum` variable directly in the reported models.
+
+
+## Supporting Visualization
+
+The interactive dashboard allows viewers to:
+
+- Select one of the three mental health outcomes.
+- Compare weighted prevalence across A through F grade categories.
+- Switch between prevalence percentages and adjusted odds ratios.
+- View confidence intervals for the adjusted regression results.
+- Read plain-language explanations of the main findings.
+
+The visualization emphasizes the D-grade category because it had the highest reported prevalence and adjusted odds for all three outcomes. It also makes clear that the results show an association rather than proof that grades cause mental health concerns.
+
 
 ## 6. Act: Practical Recommendations
 
