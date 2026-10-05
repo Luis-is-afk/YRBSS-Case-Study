@@ -20,8 +20,8 @@ Among students reporting mostly A's, 20.0% reported persistent sadness or hopele
 
 After adjusting for sex, age, race or ethnicity, sleep, school bullying, and cyberbullying, students with mostly D's had about 10 times the odds of reporting persistent sadness and about 9 times the odds of reporting a suicide plan compared with students reporting mostly A's.
 
-These results do not prove that lower grades cause mental health problems. They do suggest that a major academic decline may be a useful reason for schools to offer a supportive check in. Grades should not be treated as a diagnosis or used as the only reason to intervene. They may instead serve as one early warning signal alongside other information about a student's well being.
-
+These results do not prove that lower grades cause mental health problems. They do suggest that a major academic decline may be a useful reason for schools to offer a supportive check in. Grades should not be treated as a diagnosis or used as the only reason to intervene. They may instead serve as one early warning signal alongside other information about a student's well being. 
+[Open interactive dashboard](https://luis-is-afk.github.io/YRBSS-Case-Study/interactive_dashboard.html)
 ## 1. Ask: Research Question and Stakeholders
 
 ### Research Question
@@ -162,7 +162,7 @@ The interactive dashboard allows:
 
 The visualization emphasizes the D grade category because it had the highest reported prevalence and adjusted odds for all three outcomes. It also makes clear that the results show an association rather than proof that grades cause mental health concerns.
 
-[Open the interactive dashboard](https://luis-is-afk.github.io/YRBSS-Case-Study/interactive_dashboard.html)
+[Open interactive dashboard](https://luis-is-afk.github.io/YRBSS-Case-Study/interactive_dashboard.html)
 
 ## 6. Act: Practical Recommendations
 
