@@ -1,17 +1,9 @@
-"""
-YRBSS Table Exporter: Generates Markdown & CSV report tables.
-Run: python export_tables.py yrbs2023.csv
-"""
 import os
 import sys
 import pandas as pd
 from analysis import load, weighted_prev, odds_ratios, OUTCOMES
 
 def export_all_tables(data_path: str, output_dir: str = "exports"):
-    """
-    Executes YRBSS statistical models and exports formatted tables 
-    to Markdown and CSV formats for documentation and reporting.
-    """
     os.makedirs(output_dir, exist_ok=True)
     d = load(data_path)
     
