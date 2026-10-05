@@ -4,7 +4,7 @@ import pyodbc
 import pandas as pd
 
 mdb_file = Path(
-    r"C:\Users\luisa\OneDrive\Desktop\High-Academic-Performance-Pressure-vs.-Youth-Mental-Health\YRBSS.mdb"
+    r"High-Academic-Performance-Pressure-vs.-Youth-Mental-Health\YRBSS.mdb"
 )
 
 # Connection string for Windows Access Driver
