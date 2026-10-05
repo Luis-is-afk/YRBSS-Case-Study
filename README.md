@@ -25,14 +25,14 @@ These results do not prove that lower grades cause mental health problems. They 
 ## 1. Ask: Research Question and Stakeholders
 
 ### Research Question
-
-> To what extent are lower self reported high school grades associated with adolescent mental health concerns, including persistent sadness, serious suicidal thoughts, and suicide planning? Does this relationship remain after accounting for sleep, school bullying, cyberbullying, and demographic factors?
-
+To what extent are lower self reported high school grades associated with adolescent mental health concerns, including persistent sadness, serious suicidal thoughts, and suicide planning? Does this relationship remain after accounting for sleep, school bullying, cyberbullying, and demographic factors?
+> Key metrics: The analysis uses weighted prevalence percentages and adjusted odds ratios to compare reported mental health outcomes across grade categories. The three outcomes are persistent sadness or hopelessness, seriously considering suicide, and making a suicide plan.
 ### Stakeholders
 
 The intended audience includes school district leaders, state education departments, school counselors, student support teams, social workers, and education policy advisers.
 
 The practical question is whether academic performance data could help schools identify students who may benefit from additional academic or personal support.
+> **Client context:** This analysis is to be used by school mental health professionals or the state education department that wants to identify practical signals that may help schools offer support to students earlier.
 
 ## 2. Prepare: About the Data
 
@@ -132,6 +132,7 @@ Other limitations include the following:
 4. **Protect privacy and use human review.** Any early warning system should limit access to sensitive information and require trained staff to review alerts before taking action.
 5. **Offer immediate help when needed.** If a student reports suicidal thoughts or appears to be in immediate danger, staff should follow the school's established crisis-response procedures and connect the student with qualified mental health professionals.
 
+**Final conclusion:** Lower self reported grades were strongly associated with higher reported levels of persistent sadness, serious suicidal thoughts, and suicide planning in this 2023 YRBSS sample. The association stil remains after adjusting for demographic factors, sleep, bullying, and cyberbullying. Academic decline should not be treated as a diagnosis, but it may be a useful signal for schools to offer timely academic and mental health support.
 
 ## Crisis and Mental Health Resources
 
