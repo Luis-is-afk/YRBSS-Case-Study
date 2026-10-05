@@ -15,3 +15,19 @@ This case study looks at whether a teenager's grades are connected to their ment
 This pattern was still present even after taking into account other problems like not getting enough sleep, and being bullied online or in person. Students with grade's averaging a D, were more likely to report mental health issues compared to students who mostly get A's.
 
 Failing grades may be more than just overall academic performance, it possibly can be a wanting sign that a student may need mental health support. Schools should look at a student's academic decline as a reason to check in with a student.
+
+
+
+
+
+
+
+---
+
+> ### 🆘 Crisis & Mental Health Resources
+> This repository contains statistical analysis surrounding adolescent mental health, depression, and suicidal behavior. If you or someone you know is struggling or in crisis, help is available. You are not alone.
+>
+> * **National Suicide & Crisis Lifeline:** Call or text **988** (Available 24/7, free, and confidential in the US & Canada).
+> * **The Crisis Text Line:** Text **HOME** to **741741** to connect with a crisis counselor.
+> * **The Trevor Project** (LGBTQ Youth): Call **1-866-488-7386** or text **START** to **678-678**.
+> * **International Resources:** Find support services in your country at [Find A Helpline](https://findahelpline.com/).
