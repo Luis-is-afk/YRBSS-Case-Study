@@ -1,0 +1,5 @@
+Grade Comparison,Unadjusted OR,Unadjusted 95% CI,Adjusted OR,Adjusted 95% CI,p-value
+Mostly B's vs A's,2.815,"(1.99, 3.99)",2.02,"(1.58, 2.58)",0.0
+Mostly C's vs A's,6.289,"(5.25, 7.54)",4.593,"(3.75, 5.62)",0.0
+Mostly D's vs A's,14.76,"(11.27, 19.33)",9.149,"(6.88, 12.16)",0.0
+Mostly F's vs A's,14.557,"(10.76, 19.69)",7.726,"(5.65, 10.57)",0.0
